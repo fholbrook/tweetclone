@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Flint's Twitter Clone</title>
+        <link rel="stylesheet" type="text/css" href="http://flintholbrook.com/webroot/styles/styles.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="container">
+                <header class="page-header">
+                    <p style="float:right;"><a href="/user/logout">Logout</a></p>
+                    <h1>Flint's Twitter Clone</h1>
+                    <p>It is built on Silex and uses mysql as the database.</p>
+                </header>
+            </div>
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="tweet-form">
+                        {{ form(form) }}
+                    </div>
+                    {% for tweet in tweets %}
+                        <div class="tweet-box">
+                            
+                            <div class="tweet">{{ tweet.message }}</div>
+                            <div class="time">{{ tweet.time_created }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
