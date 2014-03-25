@@ -188,6 +188,9 @@ class UserController
      */
     public function editAction(Application $app, Request $request, $id)
     {
+        //disabling all profile edit functions
+        return $app->redirect('/');
+        /*
         $errors = array();
 
         $user = $this->userManager->getUser($id);
@@ -226,10 +229,15 @@ class UserController
             'available_roles' => array('ROLE_USER', 'ROLE_ADMIN'),
             'image_url' => $this->getGravatarUrl($user->getEmail()),
         ));
+         * 
+         */
     }
 
     public function listAction(Application $app, Request $request)
     {
+        //disabiling all profile edit functions
+        return $app->redirect('/');
+        /*
         $limit = $request->get('limit') ?: 50;
         $offset = $request->get('offset') ?: 0;
         $order_by = $request->get('order_by') ?: 'id';
@@ -271,6 +279,6 @@ class UserController
             'firstResult' => $firstResult,
             'lastResult' => $lastResult,
         ));
-
+*/
     }
 }
