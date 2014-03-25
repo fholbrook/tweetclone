@@ -39,7 +39,9 @@ $app->match('/', function (Request $request) use ($app) {
             $sql = "INSERT into tweets(message, user_id) VALUES(?,?)";
             $stmt = $app['db']->prepare($sql);
             $stmt->bindValue(1, $data['tweet']);
+            //KNOWN ISSUE, INSTEAD OF 1 WE NEED TO RETRIEVE THE USER ID FROM SECRUITY SESSION
             $stmt->bindValue(2, 1);
+            //END KNOWN ISSUE
             $stmt->execute();
         } catch (Exception $ex) {
             $form->get('tweet')->addError(new FormError('Tweet not posted, try again later!'));
